@@ -1,0 +1,42 @@
+<!--pages/posts/posts.wxml-->
+<view>
+  <swiper indicator-dots autoplay circular interval="{{ 3000 }}">
+    <swiper-item>
+      <image data-post-id="3" bind:tap="onGoToDetail" src="/images/bestplayers.png"></image>
+    </swiper-item>
+    <swiper-item>
+      <image data-post-id="0" bind:tap="onGoToDetail" src="/images/lpl.png"></image>
+    </swiper-item>
+    <swiper-item>
+      <image data-post-id="4" bind:tap="onGoToDetail" src="/images/jumpfly.png"></image>
+    </swiper-item>
+  </swiper>
+<!-- <post res="{{ res }}"/> -->
+<!-- 渲染 -->
+  <!-- <view class="post-container">
+      <view class="post-author-date">
+        <image class="post-author" src="{{ avatar }}"></image>
+        <text class="post-date">{{date}}</text>
+      </view>
+
+      <text class="post-title">{{title}}</text>
+
+      <image class="post-image" src="{{ imgSrc }}"></image>
+
+      <text class="post-content">{{ content }}</text>
+
+      <view class="post-like">
+        
+        <l-icon class="post-like-image" size="28" color="#666" name="favor" />
+        <image class="post-like-image" src="/images/icon/chat.png"></image>
+        <text class="post-like-font">{{ collection }}</text>
+        <l-icon class="post-like-image" size="32" color="#666" name="eye" />
+        <image class="post-like-image" src="/images/icon/view.png"></image>
+        <text class="post-like-font">{{ reading }}</text>
+      </view>
+  </view> -->
+  <block wx:for="{{ postList }}" wx:key="postId">
+      <post bind:posttap="onGoToDetail" res="{{ item }}" />
+  </block>
+</view>
+

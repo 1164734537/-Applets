@@ -1,0 +1,14 @@
+
+<l-search-bar bind:linconfirm="onConfirm"  bind:lincancel="onSearchCancel" l-class="ex-search-bar" placeholder="更多搜索" show-cancel="{{ true }}"/>
+<view wx:if="{{ !searchResult }}">
+  <movies-list data-type="in_theaters" bind:tap="onGotoMore" movies="{{ inTheaters }}" title="正在上映" f-class="movie-list" />
+  <movies-list data-type="coming_soon" bind:tap="onGotoMore" movies="{{ comingSoon }}" title="即将上映" f-class="movie-list" />
+  <movies-list data-type="top250" bind:tap="onGotoMore" movies="{{ top250 }}" title="豆瓣Top250" f-class="movie-list" />
+</view>
+<view wx:else class="search-container">
+  <block wx:for="{{ searchData }}" wx:key="index">
+    <movie class="movie" movie="{{ item }}" />
+  </block>
+</view>
+
+
